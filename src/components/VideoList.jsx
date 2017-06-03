@@ -1,18 +1,17 @@
-var VideoList = () => (
-  <div className="video-list media">
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-  </div>
-);
+var VideoList = (props) => {
 
+  //exits out of scope of JSX to ESX by utilizing return
+  //for(iterate....prop.length)
+  //create some feeder array of examplevideoData numbers
+  //feed it in somehow...
+  return (
+    <div className="video-list media">
+      {props.videos.map((video)=> <VideoListEntry video={video} />)}
+    </div>
+  );
+};
 
+//line 4 needs some sort of recursive function
 //considering using prop to pass in exampleVideoData to videoList
 
 
