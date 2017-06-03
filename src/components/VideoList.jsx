@@ -12,6 +12,11 @@ var VideoList = () => (
   </div>
 );
 
+
+//considering using prop to pass in exampleVideoData to videoList
+
+
+
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
 VideoList.propTypes = {
