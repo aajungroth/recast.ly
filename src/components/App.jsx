@@ -4,12 +4,30 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-
-
-      currentVideo: window.exampleVideoData[0],
-      videos: window.exampleVideoData
+      videos: window.exampleVideoData,
+      currentVideo: window.exampleVideoData[0]
+      // videos: [],
+      // currentVideo : null
     };
 
+  }
+
+  componentDidMount() {
+    this.getYouTubeVideos('Tom');
+  }
+
+  getYouTubeVideos(query) {
+    var options = {
+      key: this.props.API_KEY,
+      query: query
+    };
+
+    this.props.searchYouTube(options, (videos)=> {
+      this.setState({
+        videos: this.videos,
+        currentVideo: this.videos[0]
+      });
+    });
   }
 
   handleClickFunction(video) {
@@ -21,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav handleChange={this.getYouTubeVideos.bind(this)}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo} />
         </div>
@@ -35,7 +53,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
 window.App = App;

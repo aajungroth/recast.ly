@@ -1,7 +1,7 @@
-var Nav = () => (
+var Nav = ({handleChange}) => (
   <nav className="navbar">
     <div className="col-md-6 col-md-offset-3">
-      <Search />
+      <Search handleChange={handleChange}/>
     </div>
   </nav>
 );
