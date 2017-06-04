@@ -24,8 +24,8 @@ class App extends React.Component {
 
     this.props.searchYouTube(options, (videos)=> {
       this.setState({
-        videos: this.videos,
-        currentVideo: this.videos[0]
+        videos: videos,
+        currentVideo: videos[0]
       });
     });
   }
