@@ -1,4 +1,4 @@
-var VideoList = (props) => {
+var VideoList = ({videos, handleClickFunction}) => {
 
   //exits out of scope of JSX to ESX by utilizing return
   //for(iterate....prop.length)
@@ -6,7 +6,10 @@ var VideoList = (props) => {
   //feed it in somehow...
   return (
     <div className="video-list media">
-      {props.videos.map((video)=> <VideoListEntry video={video} />)}
+      {videos.map((video)=> <VideoListEntry
+       video={video} key={video.id.videoId}
+       handleClickFunction={handleClickFunction}
+       />)}
     </div>
   );
 };
